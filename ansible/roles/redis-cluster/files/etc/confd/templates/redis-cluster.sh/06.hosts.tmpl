@@ -1,0 +1,9 @@
+hostsFile="/etc/hosts"
+sed "/^# >> Redis Cluster nodes./,/^# << Redis Cluster nodes./d" $hostsFile > $hostsFile.swap
+
+flush >> $hostsFile.swap << HOSTS_FILE_EOF
+# >> Redis Cluster nodes. WARNING: this is managed by script and please don't touch manually.
+$(echo "$hostsNames" |sed '1d')
+# << Redis Cluster nodes. WARNING: this is managed by script and please don't touch manually.
+HOSTS_FILE_EOF
+mv $hostsFile.swap $hostsFile
