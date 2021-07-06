@@ -2,7 +2,7 @@
   "patch_policy": [""],
   "patch_nodes": [{
     "container": {
-        "snapshot": "ss-or9nzezs",
+        "snapshot": "ss-facf5rbq",
         "zone": "pek3"
     },
     "patch": [{
